@@ -1,0 +1,20 @@
+//Mixins 有点像是函数或者是宏，当你某段 CSS 经常需要在多个元素中使用时，你可以为这些共用的 CSS 定义一个 Mixin，然后你只需要在需要引用这些 CSS 地方调用该 Mixin 即可。
+border-1px($color)
+  position:relative
+  &:after
+    display:block
+    position:absolute
+    left:0
+    bottom:0
+    width:100%
+    border-top:1px solid $color
+    content:" "
+
+border-none()
+  &:after
+    display:none
+
+bg-image($url)
+	background-image:url($url+"@2x.png")
+	@media(-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3)
+		background-image:url($url+"@3x.png")
